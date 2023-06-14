@@ -1,0 +1,26 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:smartField="sap.ui.comp.smartfield"
+    xmlns:core="sap.ui.core">
+
+    <Dialog title="{NomeMat}">
+        <form:SimpleForm editable="true" maxContainerCols="1">
+            <form:content>
+                <Label text="Quantidade" />
+                <Input id="QtdMovmat" type="Number"/>
+                <Label text="Data"/>
+                <DatePicker id="DataMat" valueFormat="yyyy-MM-dd" displayFormat="dd.MM.yyyy" />         
+               <Label text="Fornecedor" />
+                
+            </form:content>
+        </form:SimpleForm>
+
+        <buttons>
+            <Button  text="Produzir" press="onPressSubmitCreate" />
+            <Button text="Cancelar" press="onPressCancelCreate" />
+        </buttons>
+    </Dialog>
+  
+</core:FragmentDefinition>
+            

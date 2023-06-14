@@ -1,0 +1,72 @@
+<mvc:View controllerName="com.cs4.wl.cliente.controller.Cliente"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns="sap.m">
+	<Page id="page">
+		<content>
+			<FlexBox alignItems="Center" justifyContent="Center">
+				<VBox class="sapUiSmallMargin">
+					<Image src="../controller/imagem/wl.jpg" class="sapUiSmallMarginBeginEnd" />
+				</VBox>
+			</FlexBox>
+			<FlexBox alignItems="Center" justifyContent="Center">
+				<VBox class="sapUiSmallMargin">
+					<Text text="Clientes e Fornecedores" class="sapMH4FontSize"></Text>
+				</VBox>
+			</FlexBox>
+			<FormattedText htmlText="&lt;br&gt;"/>
+			<Table id="clientes" items="{/ClienteSet}" mode="SingleSelectLeft">
+				<headerToolbar>
+					<OverflowToolbar>
+						<content>
+							 <Label text="Nome"/>
+                    <Input id="IdNome"   width="20%"/>
+                    <CheckBox id="Fornecedor" selected="true" select="onSelectStatus" text="Fornecedor" />  
+                    <CheckBox id="Cliente" selected="true" select="onSelectStatus" text="Cliente" />  
+                    <Button  icon="sap-icon://search" press="onPressSearch" ariaLabelledBy="editButtonLabel" class="sapUiSmallMargin" />  
+                    
+						</content>
+						<content>
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://refresh" press="onPressRefresh" ariaLabelledBy="editButtonLabel" text="Limpar Filtros" class="sapUiSmallMargin"/>
+							<Button icon="sap-icon://add" press="onPressCreate" ariaLabelledBy="editButtonLabel" text="Criar" class="sapUiSmallMargin"/>
+							<Button icon="sap-icon://edit" press="onPressUpdate" ariaLabelledBy="editButtonLabel" text="Alterar" class="sapUiSmallMargin"/>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="6em">
+						<Text text="ID"/>
+					</Column>
+					<Column width="10em">
+						<Text text="Nome"/>
+					</Column>
+					<Column width="8em">
+						<Text text="Status"/>
+					</Column>
+					<Column width="12em">
+						<Text text="Morada"/>
+					</Column>
+					<Column width="12em">
+						<Text text="E-mail"/>
+					</Column>
+					<Column width="8em">
+						<Text text="Telefone"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="onPresscliente">
+						<cells>
+							<Text text="{IdPerson}"/>
+							<Text text="{NomePerson}"/>
+							<Text text="{StatusPerson}"/>
+							<Text text="{MoradaPerson}"/>
+							<Text text="{EmailPerson}"/>
+							<Text text="{TelefonePerson}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View> 

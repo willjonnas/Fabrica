@@ -1,0 +1,68 @@
+<mvc:View controllerName="com.cs4.wl.compra.controller.TodasCompras"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+     <Page id="page" >
+        <FlexBox
+				alignItems="Center"
+				justifyContent="Center">
+                <VBox class="sapUiSmallMargin">
+                    <Image src="../controller/imagem/wl.jpg" class="sapUiSmallMarginBeginEnd" />
+                </VBox>                
+        </FlexBox>
+        <FlexBox
+				alignItems="Center"
+				justifyContent="Center">
+                <VBox class="sapUiSmallMargin">
+                <Text text="Entradas" class="sapMH4FontSize"></Text>
+                </VBox>                
+        </FlexBox>
+
+        <FormattedText htmlText="&lt;br&gt;"/> 
+
+        <Table id="comprass" items="{/CompraSet}" > 
+            <headerToolbar>
+                <OverflowToolbar>
+                    <Label text="Início" class="sapUiTinyMarginEnd"/>
+                    <DatePicker id="startDate" valueFormat="yyyy-MM-dd" displayFormat="dd.MM.yyyy" class="sapUiTinyMarginEnd" width="10%"  />
+                    <Label text="Fim" class="sapUiTinyMarginEnd"/>
+                    <DatePicker id="endDate" valueFormat="yyyy-MM-dd" displayFormat="dd.MM.yyyy" class="sapUiTinyMarginEnd" width="10%"/>
+                    <Input id="pesquisa" width="20%"/> 
+                    <CheckBox id="NomeMat" selected="true" select="onSelectStatus" text="Material" />  
+                    <CheckBox id="NomePerson" selected="true" select="onSelectStatus" text="Fornecedor" />
+                    <Button icon="sap-icon://search" press="onPressSearch" ariaLabelledBy="editButtonLabel" class="sapUiSmallMargin" width="10%" />  
+                    <Button icon="sap-icon://refresh" press="onPressRefresh" ariaLabelledBy="editButtonLabel" text="Limpar Filtros" class="sapUiSmallMargin" width="10%"/>
+                </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+                <Column >
+                    <Text text="Material" />
+                </Column>
+                <Column >
+                    <Text text=" Quantidade" />   
+                </Column>
+                <Column >
+                    <Text text="Valor (€)" />
+                </Column>
+                <Column >
+                    <Text text="Data" />   
+                </Column>
+                <Column >
+                    <Text text="Fornecedor" />   
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Navigation" >
+                    <cells>
+                        <Text text="{NomeMat} ({IdMat})" />
+                         <Text text="{QtdMovmat}" />
+                         <Text text="{= (${PrecoMat} * ${QtdMovmat}).toFixed(2)}" /> 
+                         <Text text="{path: 'DataMat', formatter: '.formatDate'}"/> 
+                          <Text text="{NomePerson} ({IdPerson})" />
+
+                    </cells>
+                </ColumnListItem>
+            </items>
+        
+        </Table>
+    </Page>
+</mvc:View>

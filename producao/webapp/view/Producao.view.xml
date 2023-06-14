@@ -1,0 +1,64 @@
+<mvc:View controllerName="com.cs4.wl.producao.controller.Producao"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+ <Page id="page" >
+        <FlexBox
+				alignItems="Center"
+				justifyContent="Center">
+                <VBox class="sapUiSmallMargin">
+                    <Image src="../controller/imagem/wl.jpg" class="sapUiSmallMarginBeginEnd" />
+                </VBox>                
+        </FlexBox>
+        <FlexBox
+				alignItems="Center"
+				justifyContent="Center">
+                <VBox class="sapUiSmallMargin">
+                <Text text="Produção " class="sapMH4FontSize"></Text>
+                </VBox>                
+        </FlexBox>
+
+        <FormattedText htmlText="&lt;br&gt;"/> 
+
+        <Table id="material" items="{/MaterialSet}" mode="SingleSelectLeft"> 
+            <headerToolbar>
+
+                <OverflowToolbar>
+                    <content>
+                    </content>
+                    <Label text="Material"/>
+                    <Input id="IdNome"   width="20%"/> 
+                    <Button  icon="sap-icon://search" press="onPressSearch" ariaLabelledBy="editButtonLabel" class="sapUiSmallMargin" />  
+                     <Button icon="sap-icon://refresh" press="onPressReflesh" ariaLabelledBy="editButtonLabel" text="Limpar Filtros" class="sapUiSmallMargin"/>  
+                    <content>
+                        <ToolbarSpacer ></ToolbarSpacer>
+                            <Button icon="sap-icon://activities" press="onPressProducao" ariaLabelledBy="editButtonLabel" text="Produzir" class="sapUiSmallMargin"   />    
+                            <Button icon="sap-icon://list" press="onPressTodas" ariaLabelledBy="editButtonLabel" text="Ver Produção" class="sapUiSmallMargin"   />
+                            <Button icon="sap-icon://action-settings" press="onPressConfiguracao" ariaLabelledBy="editButtonLabel" text="Definições" class="sapUiSmallMargin"/>
+
+                     </content>
+                </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+                
+                <Column >
+                    <Text text="Material" />
+                </Column>
+                <Column >
+                    <Text text="Estoque" />
+                </Column>
+
+            </columns>
+            <items>
+                <ColumnListItem type="Navigation">
+                    <cells>
+
+                        <Text text="{NomeMat} ({IdMat})" />
+                        <Text text="{QtdMat}" />
+                      
+                    </cells>
+                </ColumnListItem>
+            </items>
+        
+        </Table>
+    </Page>
+</mvc:View>

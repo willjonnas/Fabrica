@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZUI5_WL_VENDA_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="Venda" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IdMov"/>
+                </Key>
+                <Property Name="IdMov" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="ID_MOV" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IdMat" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="ID_MAT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DataMat" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="DATA_MAT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InOutMat" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="IN_OUT_MAT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="QtdMovmat" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="0" sap:unicode="false" sap:label="QTD_MOVMAT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IdPerson" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="ID PESSOA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NomePerson" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="NOME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NomeMat" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="NOME_MAT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusMat" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="STATUS_MAT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="QtdMat" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="0" sap:unicode="false" sap:label="QTD_MAT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusPerson" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Clien ou For" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZUI5_WL_VENDA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="VendaSet" EntityType="ZUI5_WL_VENDA_SRV.Venda" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://csthana01.interno.infra:44301/sap/opu/odata/sap/ZUI5_WL_VENDA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://csthana01.interno.infra:44301/sap/opu/odata/sap/ZUI5_WL_VENDA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

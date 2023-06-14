@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m"
+                          xmlns:form="sap.ui.layout.form"
+                          xmlns:smartField="sap.ui.comp.smartfield"
+                          xmlns:core="sap.ui.core">
+    <Dialog title="Cliente">
+        <form:SimpleForm editable="true" maxContainerCols="1">
+            <form:content>
+                <Label text="Nome"/>
+                <Input id="NomePerson" type="Text" />
+                <Label text="Morada"/>
+                <Input id="MoradaPerson" type="Text" />
+                <Label text="E-mail"/>
+                <Input id="EmailPerson"  />
+                <Label text="Telefone"/>
+                <Input id="TelefonePerson" type="Number"  />
+                <Label text="Status"/>
+                <RadioButtonGroup id="StatusPerson" select="onSelectStatus" >
+                <buttons>
+                    <RadioButton id="cl" text="Cliente" />
+                    <RadioButton id="fc" text="Fornecedor" />
+                </buttons>
+                </RadioButtonGroup>
+            </form:content>
+        </form:SimpleForm>
+
+        <buttons>
+            <Button text="Criar" press="onPressSubmitCreate" />
+            <Button text="Cancelar" press="onPressCancelCreate" />
+        </buttons>
+      
+        <beginButton>
+            <Button text="Criar" press="onPressSubmitCreate" />
+        </beginButton>
+        <endButton>
+            <Button text="Cancelar" press="onPressCancelCreate" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

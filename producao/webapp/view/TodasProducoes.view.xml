@@ -1,0 +1,58 @@
+<mvc:View controllerName="com.cs4.wl.producao.controller.TodasProducoes"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+     <Page id="page" >
+        <FlexBox
+				alignItems="Center"
+				justifyContent="Center">
+                <VBox class="sapUiSmallMargin">
+                    <Image src="../controller/imagem/wl.jpg" class="sapUiSmallMarginBeginEnd" />
+                </VBox>                
+        </FlexBox>
+        <FlexBox
+				alignItems="Center"
+				justifyContent="Center">
+                <VBox class="sapUiSmallMargin">
+                <Text text="Produção de Materiais" class="sapMH4FontSize"></Text>
+                </VBox>                
+        </FlexBox>
+
+        <FormattedText htmlText="&lt;br&gt;"/> 
+
+        <Table id="composicao" items="{/MovimentoSet}" > 
+            <headerToolbar>
+
+                <OverflowToolbar>
+                    <content>
+                    </content>
+                    <ToolbarSpacer ></ToolbarSpacer>
+                    <Label text="Material"/>
+                    <Input id="IdNome"   width="20%"/> 
+                    <Button  icon="sap-icon://search" press="onPressSearch" ariaLabelledBy="editButtonLabel" class="sapUiSmallMargin" />  
+                     <Button icon="sap-icon://refresh" press="onPressReflesh" ariaLabelledBy="editButtonLabel" text="Limpar Filtros" class="sapUiSmallMargin"/>  
+                </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+                <Column >
+                    <Text text="Material" />
+                </Column>
+                <Column >
+                    <Text text=" Data" />   
+                </Column>
+                <Column >
+                    <Text text="Quantidade" />   
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Navigation" >
+                    <cells>
+                        <Text text="{NomeMat} ({IdMat})" />
+                        <Text text="{path: 'DataMat', formatter: '.formatDate'}"/> 
+                        <Text text="{QtdMovmat}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        
+        </Table>
+    </Page>
+</mvc:View>

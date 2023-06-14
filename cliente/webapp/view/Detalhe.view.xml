@@ -1,0 +1,22 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="com.cs4.wl.cliente.controller.Detalhe"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page">
+    <content>
+        <form:SimpleForm editable="true" maxContainerCols="1" class="customForm">
+            <form:content>
+                <Label text="Nome"  />
+                <Input value="{NomePerson}" type="Text"  />
+                <Label text="Morada" />
+                <Input value="{MoradaPerson}" type="Text"  />
+                <Label text="Email" />
+                <Input value="{EmailPerson}" />
+                <Label text="Telefone" />
+                <Input value="{TelefonePerson}" type="Number"  />
+                  <Button icon="sap-icon://save" text="Salvar" type="Emphasized" press="onPressSave"  />
+            </form:content>
+        </form:SimpleForm>
+       
+        </content>
+    </Page>
+</mvc:View>

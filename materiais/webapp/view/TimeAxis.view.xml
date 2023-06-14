@@ -1,0 +1,62 @@
+<mvc:View controllerName="com.cs4.wl.materiais.controller.TimeAxis"
+  xmlns="sap.m"
+  xmlns:viz="sap.viz.ui5.controls"
+  xmlns:layout="sap.ui.layout"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+  xmlns:core="sap.ui.core"
+  xmlns:viz.data="sap.viz.ui5.data"
+  height="100%"
+  xmlns:odata="sap.ui.model.odata.v2.ODataModel"
+  xmlns:VizFrame="sap.viz.ui5.controls.VizFrame"
+>
+
+<FlexBox alignItems="Center" justifyContent="Center">
+    <VBox class="sapUiSmallMargin">
+      <Text text="Gráfico de Estoque" class="sapMH4FontSize" />
+    </VBox>
+  </FlexBox>
+  <FlexBox alignItems="Center" justifyContent="Center">
+  <VBox class="sapUiSmallMargin">
+    <Label text="Início" class="sapUiTinyMarginEnd"/>
+    <DatePicker id="startDate" valueFormat="yyyy-MM-dd" displayFormat="dd.MM.yyyy" class="sapUiTinyMarginEnd" />
+    <Label text="Fim"  class="sapUiTinyMarginEnd"/>
+    <DatePicker id="endDate" valueFormat="yyyy-MM-dd" displayFormat="dd.MM.yyyy" class="sapUiTinyMarginEnd" />
+  </VBox>
+</FlexBox>
+ 
+ <FlexBox alignItems="Center" justifyContent="Center">
+  <HBox class="sapUiTinyMargin">
+    <Button icon="sap-icon://search" press="onPressSearch" ariaLabelledBy="editButtonLabel" class="sapUiTinyMarginBeginEnd" />  
+    <Button icon="sap-icon://refresh" press="onPressclean" ariaLabelledBy="editButtonLabel" text="Limpar Filtro" class="sapUiTinyMarginBeginEnd"/>
+  </HBox>
+</FlexBox>
+
+  <layout:FixFlex id="chartFixFlex" minFlexSize="250">
+    <layout:flexContent>
+      <viz:Popover id="idPopOver" />
+      <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height="75%" width="100%" vizType="timeseries_line">
+        <viz:dataset >
+          <viz.data:FlattenedDataset data="{path: '/MovimentoSet'}">
+            <viz.data:dimensions>
+              <viz.data:DimensionDefinition name="Data" value="{path: 'DataMat', formatter: '.formatDate'}" dataType="date" />
+            </viz.data:dimensions>
+            <viz.data:measures>
+              <viz.data:MeasureDefinition name="Estoque" value="{QtdMat}" />
+            </viz.data:measures>
+          </viz.data:FlattenedDataset>
+        </viz:dataset>
+        <viz:feeds>
+          <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Estoque" />
+          <viz.feeds:FeedItem uid="timeAxis" type="Dimension" values="Data" />
+        </viz:feeds>
+      </viz:VizFrame>
+    </layout:flexContent>
+  </layout:FixFlex>
+</mvc:View>
+
+
+
+
+
+

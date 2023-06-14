@@ -1,0 +1,38 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:smartField="sap.ui.comp.smartfield"
+    xmlns:core="sap.ui.core">
+
+    <Dialog title="Material">
+        <form:SimpleForm editable="true" maxContainerCols="1">
+            <form:content>
+                <Label text="Nome do Material"/>
+                <Input id="NomeMat"/>
+                <Label text="Descrição"/>
+                <Input id="DescMat"/>
+                <Label text="Peso (kg)" />
+                <Input id="PesoMat" type="Number"/>
+                <Label text="Altura (m)"/>
+                <Input id="TamMat"/>
+                <Label text="Preço (€)" />
+                <Input id="PrecoMat" type="Number"/>
+                <Label text="Status"/>
+                <RadioButtonGroup id="StatusMat" select="onSelectStatus" >
+                <buttons>
+                    <RadioButton id="PAtext" text="PA" />
+                    <RadioButton id="MPText" text="MP" />
+                </buttons>
+                </RadioButtonGroup>
+                
+            </form:content>
+        </form:SimpleForm>
+
+        <buttons>
+            <Button  text="Criar" press="onPressSubmitCreate" />
+            <Button text="Cancelar" press="onPressCancelCreate" />
+        </buttons>
+    </Dialog>
+  
+</core:FragmentDefinition>
+            

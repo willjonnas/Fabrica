@@ -1,0 +1,34 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="com.cs4.wl.materiais.controller.Editar"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+     <Page id="page" title="Material" >
+
+    <form:SimpleForm editable="true" maxContainerCols="1" class="customForm">
+        <form:content>
+
+   
+        <VBox  class="sapUiSmallMargin"  justifyContent="Center" alignItems="Center">
+            <Label text="Nome" class="sapUiSmallMargin" />
+            <Input value="{NomeMat}"  class="sapUiSmallPadding" />
+            <Label text="Descrição" class="sapUiSmallMargin" />
+            <Input value="{DescMat}"  class="sapUiSmallPadding" />
+            <Label text="Peso (kg)" class="sapUiSmallMargin" />
+            <Input value="{PesoMat}" type="Number" class="sapUiSmallPadding" />
+            <Label text="Altura (m)" class="sapUiSmallMargin" />
+            <Input value="{TamMat}"  class="sapUiSmallPadding" />
+            <Label text="Preço (€)" class="sapUiSmallMargin" />
+            <Input value="{PrecoMat}" type="Number" class="sapUiSmallPadding" />
+            <Label text="Status" class="sapUiSmallMargin"/>
+            <Text visible="{= ${settings>/edit} === false }" text="{StatusMat}" />
+            <Input type="Text" value="{StatusMat}"  class="sapUiSmallPadding"
+                   valueHelpRequest="onValueHelpRequest" showValueHelp="true" />
+                    <Button icon="sap-icon://save" text="Salvar" type="Emphasized" press="onPressSave"  />
+                    
+         </VBox>
+    
+                      
+    </form:content>
+    </form:SimpleForm>
+
+    </Page>
+</mvc:View>

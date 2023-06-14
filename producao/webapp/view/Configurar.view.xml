@@ -1,0 +1,45 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="com.cs4.wl.producao.controller.Configurar"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="Composição" >
+        <content>
+            <form:SimpleForm editable="true" maxContainerCols="1">
+                <form:content>
+                    <VBox class="sapUiSmallMargin" justifyContent="Center" alignItems="Center">
+                        <Text text="{NomeMat}" class="sapMH4FontSize"></Text>
+                        <Label text="ID Material" class="sapUiSmallMargin" />
+                        <Input id="IdMat2" type="Number" class="sapUiSmallPadding" />
+                        <Label text="Quantidade" class="sapUiSmallMargin" />
+                        <Input id="QtdProdmat" type="Number" />
+                         
+                        <ToolbarSpacer ></ToolbarSpacer>
+                            <HBox >
+                            <Button  icon="sap-icon://add" press="onPressAdd" ariaLabelledBy="editButtonLabel" text="Adicionar" class="sapUiSmallMargin" />
+                            <Button icon="sap-icon://edit" press="onPressUpdate" ariaLabelledBy="editButtonLabel" text="Alterar" class="sapUiSmallMargin"   />
+                            <Button  icon="sap-icon://delete" press="onPressDelete" ariaLabelledBy="editButtonLabel" text="Deletar" class="sapUiSmallMargin" />
+                          </HBox>   
+                    </VBox>
+                </form:content>
+            </form:SimpleForm>
+            <FormattedText htmlText="&lt;br&gt;"/>
+            <Table id="composicao" items="{/ProducaoSet}">
+                <columns>
+                    <Column>
+                        <Text text="Composição" />   
+                    </Column>
+                    <Column>
+                        <Text text="Quantidade" />   
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Navigation">
+                        <cells>
+                            <Text text="{NomeMat2} ({IdMat2})" />
+                            <Text text="{QtdProdmat}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

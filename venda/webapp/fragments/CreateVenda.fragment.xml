@@ -1,0 +1,39 @@
+<core:FragmentDefinition
+xmlns="sap.m"
+xmlns:form="sap.ui.layout.form"
+xmlns:smartField="sap.ui.comp.smartfield"
+xmlns:core="sap.ui.core">
+
+ <Dialog title="Venda">
+        <form:SimpleForm editable="true" maxContainerCols="1">
+            <form:content>
+
+                <Label text="Quantidade"/>
+                <Input id="QtdMovmat" type="Text" />
+                <Label text="Data"/>
+                <DatePicker id="DataMat" valueFormat="yyyy-MM-dd" displayFormat="dd.MM.yyyy" />         
+                <Label text="Cliente"/>      
+                 <Select id="idcli"
+                enabled="true"
+                editable="true"
+                forceSelection="true"
+                selectedKey=""
+                width="300px"
+                items="{
+                    path: '/ClienteSet',
+                    sorter: {
+                        path: 'NomePerson'
+                    }
+                }">
+                <core:Item key="{IdPerson}" text="{NomePerson}" />
+                </Select>
+
+            </form:content>
+        </form:SimpleForm>
+
+        <buttons>
+            <Button text="Vender" press="onPressSubmitCreate" />
+            <Button text="Cancelar" press="onPressCancelCreate" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
